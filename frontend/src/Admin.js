@@ -27,25 +27,25 @@ function Admin() {
     };
 
     return (
-            <div id="wrapper">
-                <Sidebar isToggled={isSidebarToggled} onToggleSidebar={toggleSidebar} />
-                <div id="content-wrapper" className="d-flex flex-column">
-                    <div id="content">
-                        <Navbar onToggleSidebar={toggleSidebar} />
-                        <Routes>
-                            <Route path="kategori" element={<Kategori/>} />
-                            <Route path="kategori/tambah" element={<KategoriTambah/>} />
-                            <Route path="kategori/edit/:id" element={<KategoriEdit />} />
-                            <Route path="gambar" element={<Gambar/>} />
-                            <Route path="gambar/tambah" element={<GambarTambah/>} />
-                            <Route path="gambar/edit/:id" element={<GambarEdit />} />
-                            <Route index element={<Dashboard />} />
-                        </Routes>
-                    </div>
-                    <Footer />
-                </div>
-            </div>
-    );
+        <div id="wrapper">
+        <Sidebar isToggled={isSidebarToggled} onToggleSidebar={toggleSidebar} />
+        <div id="content-wrapper" className="d-flex flex-column">
+        <div id="content">
+        <Navbar onToggleSidebar={toggleSidebar} />
+        <Routes>
+        <Route path="etalase" element={<Kategori/>} />
+        <Route path="etalase/tambah" element={<KategoriTambah/>} />
+        <Route path="etalase/edit/:id" element={<KategoriEdit />} />
+        <Route path="gambar" element={<Gambar/>} />
+        <Route path="gambar/tambah" element={<GambarTambah/>} />
+        <Route path="gambar/edit/:id" element={<GambarEdit />} />
+        <Route index element={<Dashboard />} />
+        </Routes>
+        </div>
+        <Footer />
+        </div>
+        </div>
+        );
 }
 
 export default Admin;

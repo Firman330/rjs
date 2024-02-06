@@ -26,8 +26,8 @@ const KategoriTambah = () => {
             allowOutsideClick: false,
             didOpen: () => {
               Swal.showLoading();
-            },
-          });
+          },
+      });
 
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/kategori', formData,
@@ -35,8 +35,8 @@ const KategoriTambah = () => {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${authToken}`,
-                  },
-                }
+                },
+            }
             );
             console.log(response.data);
             // Optionally, you can show a success message to the user using a library like SweetAlert2.
@@ -48,7 +48,7 @@ const KategoriTambah = () => {
             });
 
             setTimeout(() => {
-                navigate('/admin/kategori');
+                navigate('/admin/etalase');
             }, 1000);
         } catch (error) {
             console.error('Error creating kategori:', error.response.data);
@@ -67,39 +67,39 @@ const KategoriTambah = () => {
     return (
         <div className="container-fluid">
         <div>
-  <h1 className="h3 mb-3 text-gray-800">Tambah Kategori</h1>
+        <h1 className="h3 mb-3 text-gray-800">Tambah Kategori</h1>
   {/* DataTales Example */}
-  
-  <div className="card shadow mb-4">
-    <div className="card-header py-3 d-flex justify-content-end align-items-center">
-        <Link to="/admin/kategori" className="btn btn-danger">
+
+        <div className="card shadow mb-4">
+        <div className="card-header py-3 d-flex justify-content-end align-items-center">
+        <Link to="/admin/etalase" className="btn btn-danger">
         <i className="bi bi-arrow-bar-left"></i>
-            <span> Kembali</span>
+        <span> Kembali</span>
         </Link>    
         <button
-            type="button"
-            className="btn btn-success ml-2"
-            onClick={handleSubmit}
-            disabled={loading}>
+        type="button"
+        className="btn btn-success ml-2"
+        onClick={handleSubmit}
+        disabled={loading}>
         <i className="bi bi-file-earmark-check"></i>
-            <span> Simpan</span>
+        <span> Simpan</span>
         </button>    
-    </div>
-    <div className="card-body">
-      <form>
+        </div>
+        <div className="card-body">
+        <form>
         <p className='fw-bold'>Nama Kategori</p>
         <input type='text' name='nama_kategori' onChange={handleChange} value={formData.nama_kategori} className='form-control' required></input>
         <p className='fw-bold'>Keterangan</p>
         <input type='text' name='keterangan' onChange={handleChange} value={formData.keterangan} className='form-control' required></input>
         <p className='fw-bold'>Jenis Kategori</p>
         <input type='text' name='jenis_kategori' onChange={handleChange} value={formData.jenis_kategori} className='form-control' required></input>
-      </form>
-    </div>
-  </div>
-</div>
- 
+        </form>
         </div>
-    );
+        </div>
+        </div>
+
+        </div>
+        );
 };
 
 export default KategoriTambah;
